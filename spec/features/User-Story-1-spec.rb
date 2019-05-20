@@ -5,8 +5,14 @@ feature 'view bookmarks' do
     expect(page).to have_content('maaate')
   end
 
-  scenario 'page has links' do
+  scenario '/' do
     visit '/'
+    expect(page).to have_content('Bookmark Manager')
+  end
+
+  scenario 'page has links' do
+    visit '/bookmarks'
+    save_and_open_page
     expect(page).to have_link ('https://devhints.io/capybara')
   end
 

@@ -3,7 +3,8 @@ require 'capybara/rspec'
 
 require './app'
 require './spec/features/User-Story-1-spec.rb'
-
+#require './spec/units/Bookmark_spec.rb'
+require './lib/bookmark'
 
 Capybara.app = Bookmarks
 
