@@ -12,8 +12,7 @@ feature 'view bookmarks' do
 
   scenario 'page has links' do
     visit '/bookmarks'
-    save_and_open_page
-    expect(page).to have_link ('https://devhints.io/capybara')
+    expect(page).to have_link ('https://www.youtube.com/')
   end
 
 end

@@ -1,4 +1,6 @@
 
-Bookmark 1 - <a href='https://devhints.io/capybara'>https://devhints.io/capybara</a>
-
-<%= "#{@bookmark.all}" %>
+<ul>
+  <% @bookmarks.each do |bookmark| %>
+    <li><a href=<%=bookmark %>><%=bookmark %></a</li>
+  <% end %>
+</ul>

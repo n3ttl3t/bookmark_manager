@@ -9,13 +9,11 @@ class Bookmarks < Sinatra::Base
   end
 
   get '/' do
-    session[:bookmark] = Bookmark.new
     erb :index
   end
 
   get '/bookmarks' do
-    session[:bookmark] = Bookmark.new
-    @bookmark = session[:bookmark]
+    @bookmarks = Bookmark.all
     erb :bookmarks
   end
 
