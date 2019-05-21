@@ -1,20 +1,16 @@
-class Bookmark
+require 'pg'
 
-  BM_LIST = ['https://www.youtube.com/',
-    'https://en.wikipedia.org/wiki/Main_Page',
-    'https://www.facebook.com/']
+class Bookmark
 
   def initialize
 
   end
 
   def self.all
-    # list2 = ""
-    # BM_LIST.each_with_index do |x, i|
-    #   list2 += "Bookmark #{i+1} - <a href='#{x}'>#{x}</a> <br>"
-    # end
-    # list2
-    BM_LIST
+    connection = PG.connect( dbname: 'bookmark_manager')
+    result = connection.exec( 'SELECT * FROM bookmarks;' )
+    result.map { |bookmark| bookmark['url']}
   end
+
 
 end

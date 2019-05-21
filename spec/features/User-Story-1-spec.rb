@@ -12,7 +12,9 @@ feature 'view bookmarks' do
 
   scenario 'page has links' do
     visit '/bookmarks'
-    expect(page).to have_link ('https://www.youtube.com/')
+    expect(page).to have_link ('http://www.makersacademy.com')
+    expect(page).to have_link ('http://www.google.com')
+    expect(page).to have_link ('http://www.destroyallsoftware.com')
   end
 
 end
