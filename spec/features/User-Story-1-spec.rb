@@ -11,6 +11,10 @@ feature 'view bookmarks' do
   end
 
   scenario 'page has links' do
+    connection = PG.connect(dbname: 'bookmark_manager_test')
+    connection.exec("INSERT INTO bookmarks (url) VALUES('http://www.makersacademy.com');")
+    connection.exec("INSERT INTO bookmarks (url) VALUES('http://www.google.com');")
+    connection.exec("INSERT INTO bookmarks (url) VALUES('http://www.destroyallsoftware.com');")
     visit '/bookmarks'
     expect(page).to have_link ('http://www.makersacademy.com')
     expect(page).to have_link ('http://www.google.com')

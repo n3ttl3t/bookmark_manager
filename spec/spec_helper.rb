@@ -1,11 +1,18 @@
+ENV['ENVIRONMENT'] = 'test'
 
 require 'capybara/rspec'
 
 require './app'
 require './spec/features/User-Story-1-spec.rb'
-#require './spec/units/Bookmark_spec.rb'
 require './lib/bookmark'
 
+require_relative './features/database_helpers'
+
+RSpec.configure do |config|
+  config.before(:each) do
+    clear_database
+  end
+end
 Capybara.app = Bookmarks
 
 require 'simplecov'
