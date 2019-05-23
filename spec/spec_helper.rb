@@ -1,28 +1,31 @@
 ENV['ENVIRONMENT'] = 'test'
 
 require 'capybara/rspec'
-
 require './app'
 require './spec/features/User-Story-1-spec.rb'
 require './lib/bookmark'
 
 require_relative './features/database_helpers'
+require './spec/features/features_helpers'
+
+
+Capybara.app = Bookmarks
+
+require 'simplecov'
+require 'simplecov-console'
 
 RSpec.configure do |config|
   config.before(:each) do
     clear_database
   end
 end
-Capybara.app = Bookmarks
-
-require 'simplecov'
-require 'simplecov-console'
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::Console,
   # Want a nice code coverage website? Uncomment this next line!
   # SimpleCov::Formatter::HTMLFormatter
 ])
+
 SimpleCov.start
 
 

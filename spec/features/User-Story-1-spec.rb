@@ -12,13 +12,13 @@ feature 'view bookmarks' do
 
   scenario 'page has links' do
     connection = PG.connect(dbname: 'bookmark_manager_test')
-    connection.exec("INSERT INTO bookmarks (url) VALUES('http://www.makersacademy.com');")
-    connection.exec("INSERT INTO bookmarks (url) VALUES('http://www.google.com');")
-    connection.exec("INSERT INTO bookmarks (url) VALUES('http://www.destroyallsoftware.com');")
+    connection.exec("INSERT INTO bookmarks (title, url) VALUES('Makers', 'http://www.makersacademy.com');")
+    connection.exec("INSERT INTO bookmarks (title, url) VALUES('Google', 'http://www.google.com');")
+    connection.exec("INSERT INTO bookmarks (title, url) VALUES('DestroyAllSoftware', 'http://www.destroyallsoftware.com');")
     visit '/bookmarks'
-    expect(page).to have_link ('http://www.makersacademy.com')
-    expect(page).to have_link ('http://www.google.com')
-    expect(page).to have_link ('http://www.destroyallsoftware.com')
+    expect(page).to have_link ('Makers')
+    expect(page).to have_link ('Google')
+    expect(page).to have_link ('DestroyAllSoftware')
   end
 
 end

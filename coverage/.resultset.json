@@ -1,20 +1,60 @@
 {
   "RSpec": {
     "coverage": {
+      "/Users/student/Projects/bookmark_manager/spec/features/user_story_2_spec.rb": [
+        1,
+        null,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null
+      ],
+      "/Users/student/Projects/bookmark_manager/spec/features/user_story_3_spec.rb": [
+        1,
+        null,
+        1,
+        1,
+        null,
+        null,
+        null,
+        null
+      ],
       "/Users/student/Projects/bookmark_manager/spec/units/Bookmark_spec.rb": [
         1,
         null,
         1,
-        1,
-        1,
+        null,
         1,
         1,
         1,
         1,
         null,
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null,
+        null,
+        1,
+        1,
+        1,
+        null,
+        null,
         null
       ]
     },
-    "timestamp": 1558533390
+    "timestamp": 1558626472
   }
 }
