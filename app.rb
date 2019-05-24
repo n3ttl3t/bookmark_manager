@@ -14,8 +14,11 @@ class Bookmarks < Sinatra::Base
 
   get '/bookmarks' do
     @bookmarks = Bookmark.all
-    p @bookmarks
     erb :bookmarks
+  end
+
+  get '/bookmarks/add' do
+    erb :add
   end
 
   post '/bookmarks/add' do

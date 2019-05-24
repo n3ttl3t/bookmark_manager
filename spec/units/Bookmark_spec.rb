@@ -13,8 +13,6 @@ describe Bookmark do
     expect(bookmarks.first).to be_a(Bookmark)
     expect(bookmarks.first.url).to eq('http://www.google.com')
     expect(bookmarks.last.title).to eq 'Brown Cardigan'
-
-
   end
 
   it 'adds a bookmark' do
