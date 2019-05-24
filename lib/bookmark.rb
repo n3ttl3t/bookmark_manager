@@ -20,6 +20,10 @@ attr_reader :id, :title, :url
     con.exec("INSERT INTO bookmarks (url, title) VALUES ('#{url}', '#{title}')");
   end
 
+  def self.delete_from_database(id)
+    con.exec("DELETE FROM bookmarks WHERE id='#{id}';")
+  end
+
 private
 
   def self.con

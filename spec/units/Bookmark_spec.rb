@@ -20,4 +20,10 @@ describe Bookmark do
     expect(Bookmark.all.first.url).to include('www.browncardigan.com')
   end
 
+  it 'deletes a bookmark' do
+    Bookmark.add_to_database('www.browncardigan.com',"Brown Cardigan")
+    Bookmark.delete_from_database('Brown Cardigan')
+    expect(Bookmark.all.first).to eq nil
+  end
+
 end

@@ -128,26 +128,22 @@ result.map { |bookmark| bookmark['url'] }
 
 
 **INSTALLING AND CONNECTING TABLE PLUS**
-
-This is a gui for easy interaction with databases.
+* `psql`, `pg` and `TablePlus` are interfaces to the `PostgreSQL` server. Tableplus is a gui for easy interaction with databases.
 * `PostgreSQL` server is running 'backgrounded' on the local machine, by default on `Port 5432`.
-
 * Where it is -> localhost (i.e. your PostgreSQL server is running 'backgrounded' on your local machine, on Port 5432).
 * What login details are required -> Your computer's name as a username (or, you can find this out by listing databases in psql), and no password. (i.e. `student`)
 * What database should it start with -> The bookmark_manager database.
 
 **SETTING UP A TESTING ENVIRONMENT**
 
-* `psql`, `pg` and `TablePlus` are interfaces to the `PostgreSQL` server.
-
-* Multiple environments in applications:
+There are multiple environments in applications:
  * A **development** environment that runs locally on your computer, so you can click around it and work on it.
  * A **production** environment that runs remotely on someone else's computer, so other people on the internet can click around it.
  * A **test** environment that runs locally on your computer whenever you run your tests. It comes into being especially for your tests, and disappears straight after your tests finish.
  * Additionally a **staging** environment, where your application runs remotely on someone else's computer, at a secret link so you can click  around it to check it's all working before it's moved to production.
 
 
- PROCESS FOR SETTING UP A TESTING ENVIRONMENT:
+ To set up a test environment:
  * Set up a database for our test environment.
  * In the spec helper, set up an Environmental Variable to tell the application to start in the test environment.
  * Write a script that sets up the testing environment (resets the database) before our tests run.
@@ -168,3 +164,33 @@ This is a gui for easy interaction with databases.
  - Insert text of URL into a table
  - Click submit button
  - See bookmark page with new bookmark
+
+ ---
+
+### User Story 3
+
+```
+As a user,
+So i can remove a bookmark,
+I want options to choose which to delete
+```
+* Using the DELETE method in html is not fully supported, so:
+  * we need to enable :method_override
+  ```
+  enable :method_override
+  ```
+  * we add a hidden input
+  ```
+    <input type='hidden' name='_method' value='DELETE'>
+  ```
+  * pass the query to action
+  ```
+  <form action='/bookmarks/<%=bookmark.id%>' method='post'>
+  ```
+  * we use that query in the controller
+  ```
+  delete '/bookmarks/:id' do
+    Bookmark.delete_from_database(params[:id])
+  ```
+
+  
