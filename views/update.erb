@@ -1,12 +1,12 @@
-<h1>Delete bookmarks</h1>
+<h1>Update bookmarks</h1>
 
 <ul>
   <% @bookmarks.each do |bookmark| %>
       <li id='bookmark-<%= bookmark.id %>'>
           <%=bookmark.title %>
         <form action='/bookmarks/<%=bookmark.id%>' method='post'>
-          <input type='hidden' name='_method' value='DELETE'>
-          <input type='submit' value='Delete link'>
+          <input type='hidden' name='_method' value='UPDATE'>
+          <input type='submit' value='Update link'>
         </form>
       </li>
   <% end %>

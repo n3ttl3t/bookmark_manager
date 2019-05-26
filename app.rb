@@ -34,9 +34,14 @@ class Bookmarks < Sinatra::Base
 
   delete '/bookmarks/:id' do
     Bookmark.delete_from_database(params[:id])
-    p "id should be #{params[:id]}"
-
     redirect '/bookmarks'
   end
+
+  get '/bookmarks/update' do
+    @bookmarks = Bookmark.all
+    erb :update
+  end
+
+
 
 end

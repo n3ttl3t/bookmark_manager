@@ -15,7 +15,6 @@ feature 'can delete bookmarks' do
     add_single_bookmark
     click_button('Delete')
     click_button('Delete link')
-    save_and_open_page
     expect(page).not_to have_link('Brown Cardigan')
   end
 

@@ -22,7 +22,7 @@ describe Bookmark do
 
   it 'deletes a bookmark' do
     Bookmark.add_to_database('www.browncardigan.com',"Brown Cardigan")
-    Bookmark.delete_from_database('Brown Cardigan')
+    Bookmark.delete_from_database("#{Bookmark.all.first.id}")
     expect(Bookmark.all.first).to eq nil
   end
 

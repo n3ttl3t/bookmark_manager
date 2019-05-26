@@ -165,6 +165,7 @@ There are multiple environments in applications:
  - Click submit button
  - See bookmark page with new bookmark
 
+
  ---
 
 ### User Story 3
@@ -174,6 +175,27 @@ As a user,
 So i can remove a bookmark,
 I want options to choose which to delete
 ```
+
+Decided to change the structure of the program at this stage:
+
+![s1](./images/s1.jpg)
+
+After planning the change we figured out what tests to do:
+
+![s2](./images/s2.jpg)
+
+Then we could move on to feature testing for this user story:
+
+![s3](./images/s3.jpg)
+
+This took more than we expected and had to do some further research:
+
+![s4](./images/s4.jpg)
+
+Eventually we figured out what we needed to do to enable the delete method:
+
+![s5](./images/s5.jpg)
+
 * Using the DELETE method in html is not fully supported, so:
   * we need to enable :method_override
   ```
@@ -192,5 +214,16 @@ I want options to choose which to delete
   delete '/bookmarks/:id' do
     Bookmark.delete_from_database(params[:id])
   ```
+---
 
-  
+### User story 4
+
+```
+As a user,
+So I can edit a bookmark,
+I want to be able to change the title and url.
+```
+
+![s6](./images/s6.jpg)
+
+This is as far as we got. Using the detailed planning process definitely helped us understand what we were doing.
