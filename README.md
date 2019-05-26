@@ -15,6 +15,8 @@ Learning objectives
 
 * Attach a database to a web application
 * Setting up a testing environment for web application with a database
+
+For more writing on this challenge and it's topics, see https://medium.com/@n3ttl3t/title-94625a9ad8bf.
 ---
 
 **CRUD**
